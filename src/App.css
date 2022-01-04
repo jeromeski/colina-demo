@@ -1,0 +1,564 @@
+/*!
+    ----------------------------------
+
+    * Colina - Hotel, Resort & Accommodation Website Theme
+    * Version - 1.1.0 
+    * Copyright (c) 2018 ElaThemes.com 
+
+    ---------------------------------- 
+
+    [Table of contents]
+
+    1. Default body styles
+    2. Container
+    3. Page loader
+    4. Headings
+    5. Header
+    5. Main navigation
+    7. Owl Theme
+    8. Owl-slider-header
+    9. Owl-slider-gallery
+    10. Owl-rooms-carousel
+    11. Button styles
+    12. Breadcrumbs
+    13. Checkbox
+    14. Sections
+    15. Section header
+    16. Page
+    17. Page header
+    18. Category header
+    19. Frontpage-slider
+    20. Image Blocks
+    21. Scroll to top
+    22. Stretcher
+    23. Banner
+    24. Instagram
+    25. Contact
+    26. Tabsy wrapper
+    27. Intro
+    28. Text blocks
+    29. Quotes
+    30. Team
+    31. Facilities
+    32. Facility
+    33. Booking
+    34. Datepicker
+    35. Rooms
+    36. Room
+    37. Gallery
+    38. Blog
+    39. Cards
+    40. Subscribe
+    41. Events
+    42. Checkout
+    43. Step wrapper
+    44. Login wrapper
+    45. Not found
+    46. Comments
+    47. About
+    48. Shortcodes
+    49. Footer
+
+    ----------------------------------
+ */
+/*  
+    ----------------------------------
+    1. Default body styles
+    ----------------------------------
+*/
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #222222;
+  font-weight: 300;
+  height: 200rem;
+  background-color: black;
+}
+
+@media (min-width: 992px) {
+  body {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
+
+body .wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+body b, body strong, body label, body .label {
+  font-weight: 500;
+}
+
+body a {
+  color: #b58e3e;
+}
+
+body a:focus, body a:active, body a:hover {
+  color: #222222;
+  text-decoration: none;
+}
+
+body a, body .btn {
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+body input, body textarea, body select {
+  /* iPad fix */
+  -webkit-appearance: none;
+  /*disable shaddow nav ipad*/
+  -moz-appearance: none;
+  /*disable shaddow nav ipad*/
+  border-radius: 0;
+  /*disable border-radius ipad*/
+}
+
+body *:focus {
+  outline: none !important;
+}
+
+/*  
+    ----------------------------------
+    2. Container
+    ----------------------------------
+*/
+@media (min-width: 1366px) {
+  .container {
+    width: 1300px;
+  }
+}
+
+@media (min-width: 1680px) {
+  .container {
+    width: 1400px;
+  }
+}
+
+@media print {
+  .container {
+    width: 99%;
+  }
+}
+
+/*  
+    ----------------------------------
+    5. Header
+    ----------------------------------
+*/
+header {
+  position: fixed;
+  width: auto;
+  left: 0;
+  right: 0;
+  display: block;
+  padding-top: 0;
+  z-index: 9999;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+
+  
+}
+
+header.sticked {
+  background-color: #00486c;
+  border-color: transparent;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 992px) {
+  header.sticked nav.navigation-top {
+    margin-top: -50px;
+  }
+  header.sticked nav.navigation-main .logo {
+    bottom: -35px;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+    background-color: #00486c;
+    width: 90px;
+    height: 93px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  header.sticked nav.navigation-main .logo img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  header.sticked {
+    position: absolute;
+    background-color: #00486c;
+  }
+}
+
+@media (max-width: 991px) {
+  header .container {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+}
+
+/*  
+    ----------------------------------
+    6. Main navigation
+    ----------------------------------
+*/
+nav.navigation-top {
+  display: none;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+@media (min-width: 992px) {
+  nav.navigation-top {
+    display: block;
+    padding: 20px 0;
+  }
+  nav.navigation-top .navigation-top-left {
+    float: left;
+  }
+  nav.navigation-top .navigation-top-left .box {
+    padding-right: 13.33333px;
+  }
+  nav.navigation-top .navigation-top-right {
+    float: right;
+  }
+  nav.navigation-top .navigation-top-right .box {
+    padding-left: 13.33333px;
+  }
+}
+
+nav.navigation-top .box {
+  color: white;
+  display: inline-block;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+nav.navigation-top .box .icon {
+  font-size: 85%;
+  vertical-align: middle;
+}
+
+nav.navigation-main {
+  position: relative;
+}
+
+nav.navigation-main .logo {
+  height: 50px;
+  -moz-transition: height 0.5s;
+  -o-transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+}
+
+nav.navigation-main .logo .logo-desktop {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  nav.navigation-main .logo .logo-desktop {
+    display: inline-block !important;
+  }
+  nav.navigation-main .logo .logo-mobile {
+    display: none;
+  }
+  nav.navigation-main .logo > a {
+    text-align: center;
+    height: 100%;
+  }
+  nav.navigation-main .logo img {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+nav.navigation-main .logo > a {
+  display: block;
+}
+
+nav.navigation-main .toggle-menu {
+  height: 50px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 27px;
+  padding: 5px 10px;
+  line-height: 36px;
+  color: white;
+}
+
+nav.navigation-main .toggle-menu .icon {
+  display: block;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+nav.navigation-main .toggle-menu .icon:before {
+  display: inline-block;
+}
+
+nav.navigation-main .toggle-menu.open .icon {
+  -moz-transform: scale(0.8) rotate(180deg);
+  -ms-transform: scale(0.8) rotate(180deg);
+  -o-transform: scale(0.8) rotate(180deg);
+  -webkit-transform: scale(0.8) rotate(180deg);
+  transform: scale(0.8) rotate(180deg);
+}
+
+nav.navigation-main .toggle-menu.open .icon:before {
+  content: "\e870" !important;
+}
+
+nav.navigation-main .navigation-block ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav.navigation-main .navigation-block ul li {
+  list-style-type: none;
+}
+
+nav.navigation-main .navigation-block ul li a {
+  display: block;
+  padding: 15px;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+nav.navigation-main .navigation-block ul li > a {
+  color: white;
+}
+
+nav.navigation-main .navigation-block ul li > ul {
+  background-color: rgba(81, 85, 97, 0.1);
+}
+
+nav.navigation-main .navigation-block ul li > ul li {
+  display: block;
+}
+
+nav.navigation-main .navigation-block ul li > ul li a {
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 10px 15px;
+}
+
+@media (min-width: 992px) {
+  nav.navigation-main {
+    position: relative;
+    z-index: 999;
+  }
+  nav.navigation-main .logo {
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 150px;
+    height: 113px;
+    z-index: 9;
+  }
+  nav.navigation-main .logo img {
+    width: auto;
+    height: 100%;
+  }
+  nav.navigation-main .toggle-menu {
+    display: none;
+  }
+  nav.navigation-main .navigation-block {
+    display: block;
+  }
+  nav.navigation-main .navigation-block > ul > li {
+    float: left;
+    display: block;
+  }
+  nav.navigation-main .navigation-block > ul > li:first-child > a {
+    padding-left: 0;
+  }
+  nav.navigation-main .navigation-block > ul > li:last-child > a {
+    padding-right: 0;
+  }
+  nav.navigation-main .navigation-block > ul li > ul {
+    padding-top: 10px;
+    background-color: transparent;
+    min-width: 180px;
+    position: absolute;
+    z-index: -1;
+    top: 100%;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    -moz-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+    -moz-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+    border-bottom-right-radius: 8px;
+  }
+  nav.navigation-main .navigation-block > ul li > ul:after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 20px;
+    border-width: 0 10px 10px 10px;
+    border-style: solid solid solid solid;
+    border-color: white transparent white;
+  }
+  nav.navigation-main .navigation-block > ul li > ul li {
+    background-color: white;
+  }
+  nav.navigation-main .navigation-block > ul li > ul li:hover a {
+    color: #3a3d45;
+    -moz-transform: translateX(5px);
+    -ms-transform: translateX(5px);
+    -o-transform: translateX(5px);
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+  }
+  nav.navigation-main .navigation-block > ul li > ul li a {
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    font-weight: bold;
+    background-color: white;
+    color: #515561;
+  }
+  nav.navigation-main .navigation-block > ul li.hovered a {
+    text-shadow: 0 0 10px white;
+  }
+  nav.navigation-main .navigation-block > ul li.hovered > ul {
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    overflow: hidden;
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+  }
+  nav.navigation-main .navigation-block > ul.navigation-left {
+    float: left;
+  }
+  nav.navigation-main .navigation-block > ul.navigation-right {
+    float: right;
+  }
+  nav.navigation-main .navigation-block > ul.navigation-right li > ul:after {
+    left: auto;
+    right: 20px;
+  }
+  nav.navigation-main .navigation-block > ul.navigation-right li {
+    position: relative;
+  }
+  nav.navigation-main .navigation-block > ul.navigation-right li:nth-last-child(-n+2) ul {
+    right: 0;
+    left: auto;
+  }
+  nav.navigation-main .navigation-block ul li > ul li {
+    border-top: 1px solid #dddddd;
+  }
+}
+
+@media (max-width: 991px) {
+  nav.navigation-main .navigation-block {
+    position: absolute;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    z-index: 999;
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    -o-transform: translate3d(-100%, 0, 0);
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  nav.navigation-main .navigation-block.open {
+    background-color: #00486c;
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  nav.navigation-main .navigation-block ul li {
+    border-top: 1px solid #006a9f;
+  }
+  nav.navigation-main .navigation-block ul li a {
+    position: relative;
+  }
+  nav.navigation-main .navigation-block ul li a .open-dropdown {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 50px;
+    top: 0;
+    line-height: 49px;
+    font-size: 30px;
+    text-align: center;
+  }
+  nav.navigation-main .navigation-block ul li a .open-dropdown i {
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  nav.navigation-main .navigation-block ul li > ul {
+    display: none;
+  }
+  nav.navigation-main .navigation-block ul li > ul li {
+    padding-left: 15px;
+  }
+  nav.navigation-main .navigation-block ul li.expanded > a {
+    background-color: #002639;
+  }
+  nav.navigation-main .navigation-block ul li.expanded .open-dropdown i {
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+
+
+
+
+
+
