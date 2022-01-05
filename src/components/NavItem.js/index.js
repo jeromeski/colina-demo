@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 
-const NavbarItem = (props) => {
+const NavItem = (props) => {
 	const { id, title, link, subMenu } = props;
 
 	const itemRef = useRef(null);
@@ -20,12 +20,10 @@ const NavbarItem = (props) => {
 		<li key={id} ref={itemRef}>
 			<Link
 				to={link}
-				onMouseEnter={() => handleMouseEnter()}
-				onMouseLeave={() => handleMouseLeave()}>
+				onMouseEnter={subMenu ? handleMouseEnter : () => ""}
+				onMouseLeave={subMenu ? handleMouseLeave : () => ""}>
 				{title}{" "}
-				<span className="open-dropdown">
-					<i className="fa fa-angle-down"></i>
-				</span>
+				<span className="open-dropdown">{subMenu ? <i className="fa fa-angle-down"></i> : ""}</span>
 			</Link>
 			<ul>
 				{subMenu &&
@@ -39,4 +37,4 @@ const NavbarItem = (props) => {
 	);
 };
 
-export default NavbarItem;
+export default NavItem;

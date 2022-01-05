@@ -1,0 +1,31 @@
+[
+	{
+		"id": 0,
+		"title": "Facilities",
+		"link": "/facilities",
+		"subMenu": false
+	},
+	{
+		"id": 1,
+		"title": "Blog",
+		"link": "/",
+		"subMenu": [
+			{
+				"id": 1.1,
+				"title": "Blog Category",
+				"link": "/blog/category"
+			},
+			{
+				"id": 1.2,
+				"title": "Blog Item",
+				"link": "/blog/item"
+			}
+		]
+	},
+	{
+		"id": 2,
+		"title": "Contact",
+		"link": "/contact",
+		"subMenu": false
+	}
+]

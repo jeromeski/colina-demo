@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import MetaData from "./MetaData";
 import logo from "../assets/images/logo.png";
 import logoMobile from "../assets/images/logo-mobile.png";
-import NavbarItem from "./NavbarItem.js";
-import Navbar from "./Navbar.js";
+import NavLeft from "./NavLeft/index.js";
+import NavRight from "./NavRight";
 
 const Home = () => {
 	useEffect(() => {
@@ -76,32 +76,8 @@ const Home = () => {
 							</div>
 
 							<div className="navigation-block clearfix">
-								<Navbar />
-
-								<ul className="navigation-right">
-									<li>
-										<Link to="facility.html">Facilities</Link>
-									</li>
-									<li>
-										<Link to="#">
-											Blog{" "}
-											<span className="open-dropdown">
-												<i className="fa fa-angle-down"></i>
-											</span>
-										</Link>
-										<ul>
-											<li>
-												<Link to="blog-category.html">Blog category</Link>
-											</li>
-											<li>
-												<Link to="blog-item.html">Blog item</Link>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<Link to="contact.html">Contact</Link>
-									</li>
-								</ul>
+								<NavLeft />
+								<NavRight />
 							</div>
 						</nav>
 					</div>

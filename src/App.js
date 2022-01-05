@@ -8,7 +8,6 @@ import "./App.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
-import Navbar from "./components/Navbar.js";
 import BookingIntro from "./components/Booking/BookingIntro";
 import BookingBox from "./components/Booking/BookingBox";
 import RoomsIntro from "./components/Booking/RoomsIntro";
@@ -20,6 +19,10 @@ import BookingStepOne from "./components/BookingStepOne";
 import BookingStepTwo from "./components/BookingStepTwo";
 import BookingStepThree from "./components/BookingStepThree";
 import ShortCodes from "./components/ShortCodes";
+import Facilities from "./components/Facilities";
+import BlogCategory from "./components/BlogCategory";
+import Contact from "./components/Contact";
+import BlogItem from "./components/BlogItem";
 
 function App() {
 	return (
@@ -37,6 +40,11 @@ function App() {
 				<Route path="/booking/step1" element={<BookingStepOne />} exact />
 				<Route path="/booking/step2" element={<BookingStepTwo />} exact />
 				<Route path="/booking/step2" element={<BookingStepThree />} exact />
+				<Route path="/booking/step2" element={<BookingStepThree />} exact />
+				<Route path="/facilities" element={<Facilities />} exact />
+				<Route path="/blog/category" element={<BlogCategory />} exact />
+				<Route path="/blog/category" element={<BlogItem />} exact />
+				<Route path="/contact" element={<Contact />} exact />
 			</Routes>
 		</BrowserRouter>
 	);

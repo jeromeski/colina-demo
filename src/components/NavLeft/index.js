@@ -1,15 +1,15 @@
-import React, { Fragment, Link } from "react";
+import React from "react";
 import leftMenuItems from "../../data/navbarLeftItems.json";
-import NavbarItem from "../NavbarItem.js";
+import NavItem from "../NavItem.js/index.js";
 
-const Navbar = () => {
+const NavLeft = () => {
 	return (
 		<ul className="navigation-left">
 			{leftMenuItems.map(({ id, ...item }) => (
-				<NavbarItem key={id} {...item} />
+				<NavItem key={id} {...item} />
 			))}
 		</ul>
 	);
 };
 
-export default Navbar;
+export default NavLeft;
