@@ -1,0 +1,78 @@
+[
+	{
+		"id": 0,
+		"title": "Home",
+		"link": "/",
+		"subMenu": [
+			{
+				"id": 1,
+				"title": "Home - Booking intro",
+				"link": "/booking/intro"
+			},
+			{
+				"id": 2,
+				"title": "Home - Booking box",
+				"link": "/booking/box"
+			},
+			{
+				"id": 3,
+				"title": "Home - Rooms intro",
+				"link": "/rooms/intro"
+			}
+		]
+	},
+	{
+		"id": 1,
+		"title": "Pages",
+		"link": "/",
+		"subMenu": [
+			{
+				"id": 1.1,
+				"title": "About us",
+				"link": "/about"
+			},
+			{
+				"id": 1.2,
+				"title": "Rooms category",
+				"link": "/rooms/category"
+			},
+			{
+				"id": 1.3,
+				"title": "Room overview",
+				"link": "/404"
+			},
+			{
+				"id": 1.4,
+				"title": "404 Not found",
+				"link": "/room/overview"
+			},
+			{
+				"id": 1.5,
+				"title": "Shortcodes",
+				"link": "/shortcodes"
+			}
+		]
+	},
+	{
+		"id": 2,
+		"title": "Booking",
+		"link": "/",
+		"subMenu": [
+			{
+				"id": 1,
+				"title": "Booking Step 1",
+				"link": "/booking/step1"
+			},
+			{
+				"id": 2,
+				"title": "Booking Step 2",
+				"link": "/booking/step2"
+			},
+			{
+				"id": 3,
+				"title": "Booking Step 3",
+				"link": "/booking/step3"
+			}
+		]
+	}
+]

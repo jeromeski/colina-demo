@@ -1,27 +1,32 @@
 import React, { Fragment, useEffect } from "react";
+import { Link } from "react-router-dom";
 import MetaData from "./MetaData";
 import logo from "../assets/images/logo.png";
 import logoMobile from "../assets/images/logo-mobile.png";
+import NavbarItem from "./NavbarItem.js";
+import Navbar from "./Navbar.js";
 
 const Home = () => {
 	useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
-
-		return () => window.removeEventListener("scroll", this.handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
-	const handleScroll = () => {
-		let number =
-			window.pageXOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+	// Sticky header
+	// ----------------------------------------------------------------
 
-		if (number >= 300) {
+	function handleScroll() {
+		const navbarFixed = document.querySelector("header");
+		let scroll = this.scrollY;
+		if (scroll >= 94) {
+			navbarFixed.classList.add("sticked");
 			if (window.innerWidth < 576) {
-				document.querySelector("header").classList.remove("sticked");
-			} else document.querySelector("header").classList.add("sticked");
+				navbarFixed.classList.remove("sticked");
+			} else navbarFixed.classList.add("sticked");
 		} else {
-			document.querySelector("header").classList.remove("sticked");
+			navbarFixed.classList.remove("sticked");
 		}
-	};
+	}
 
 	return (
 		<Fragment>
@@ -31,39 +36,39 @@ const Home = () => {
 					<div className="container">
 						<nav className="navigation-top clearfix">
 							<div className="navigation-top-left">
-								<a className="box" href="#">
+								<Link className="box" to="#!">
 									<i className="fa fa-facebook"></i>
-								</a>
-								<a className="box" href="#">
+								</Link>
+								<Link className="box" to="#!">
 									<i className="fa fa-twitter"></i>
-								</a>
-								<a className="box" href="#">
+								</Link>
+								<Link className="box" to="#!">
 									<i className="fa fa-youtube"></i>
-								</a>
+								</Link>
 							</div>
 
 							<div className="navigation-top-right">
-								<a className="box" href="#">
+								<Link className="box" to="#">
 									<i className="icon icon-star"></i>
 									Special offers
-								</a>
-								<a className="box" href="reservation-1.html">
+								</Link>
+								<Link className="box" to="reservation-1.html">
 									<i className="icon icon-tag"></i>
 									Reservations
-								</a>
-								<a className="box" href="#">
+								</Link>
+								<Link className="box" to="#">
 									<i className="icon icon-phone-handset"></i>
 									(01) 252-3333
-								</a>
+								</Link>
 							</div>
 						</nav>
 
 						<nav className="navigation-main clearfix">
 							<div className="logo animated fadeIn">
-								<a href="index.html">
+								<Link to="index.html">
 									<img className="logo-desktop" src={logo} alt="Alternate Text" />
 									<img className="logo-mobile" src={logoMobile} alt="Alternate Text" />
-								</a>
+								</Link>
 							</div>
 
 							<div className="toggle-menu">
@@ -71,94 +76,30 @@ const Home = () => {
 							</div>
 
 							<div className="navigation-block clearfix">
-								<ul className="navigation-left">
-									<li>
-										<a href="index.html">
-											Home{" "}
-											<span className="open-dropdown">
-												<i className="fa fa-angle-down"></i>
-											</span>
-										</a>
-										<ul>
-											<li>
-												<a href="index.html">Home - Booking intro</a>
-											</li>
-											<li>
-												<a href="index-2.html">Home - Booking box</a>
-											</li>
-											<li>
-												<a href="index-3.html">Home - Rooms intro</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">
-											Pages{" "}
-											<span className="open-dropdown">
-												<i className="fa fa-angle-down"></i>
-											</span>
-										</a>
-										<ul>
-											<li>
-												<a href="about.html">About us</a>
-											</li>
-											<li>
-												<a href="rooms-category.html">Rooms category</a>
-											</li>
-											<li>
-												<a href="room-overview.html">Room overview</a>
-											</li>
-											<li>
-												<a href="404.html">404 Not found</a>
-											</li>
-											<li>
-												<a href="shortcodes.html">Shortcodes</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">
-											Booking{" "}
-											<span className="open-dropdown">
-												<i className="fa fa-angle-down"></i>
-											</span>
-										</a>
-										<ul>
-											<li>
-												<a href="reservation-1.html">Booking step 1</a>
-											</li>
-											<li>
-												<a href="reservation-2.html">Booking step 2</a>
-											</li>
-											<li>
-												<a href="reservation-3.html">Booking step 3</a>
-											</li>
-										</ul>
-									</li>
-								</ul>
+								<Navbar />
 
 								<ul className="navigation-right">
 									<li>
-										<a href="facility.html">Facilities</a>
+										<Link to="facility.html">Facilities</Link>
 									</li>
 									<li>
-										<a href="#">
+										<Link to="#">
 											Blog{" "}
 											<span className="open-dropdown">
 												<i className="fa fa-angle-down"></i>
 											</span>
-										</a>
+										</Link>
 										<ul>
 											<li>
-												<a href="blog-category.html">Blog category</a>
+												<Link to="blog-category.html">Blog category</Link>
 											</li>
 											<li>
-												<a href="blog-item.html">Blog item</a>
+												<Link to="blog-item.html">Blog item</Link>
 											</li>
 										</ul>
 									</li>
 									<li>
-										<a href="contact.html">Contact</a>
+										<Link to="contact.html">Contact</Link>
 									</li>
 								</ul>
 							</div>

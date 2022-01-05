@@ -165,8 +165,6 @@ header {
   -o-transition: all 0.5s;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-
-  
 }
 
 header.sticked {
