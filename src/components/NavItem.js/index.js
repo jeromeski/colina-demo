@@ -13,15 +13,16 @@ const NavItem = (props) => {
 		itemRef.current.classList.add("hovered");
 	};
 
-	const handleMouseLeave = () => {
+	const handleMouseLeave = (e) => {
 		itemRef.current.classList.remove("hovered");
 	};
 	return (
-		<li key={id} ref={itemRef}>
-			<Link
-				to={link}
-				onMouseEnter={subMenu ? handleMouseEnter : () => ""}
-				onMouseLeave={subMenu ? handleMouseLeave : () => ""}>
+		<li
+			key={id}
+			ref={itemRef}
+			onMouseEnter={subMenu ? handleMouseEnter : () => ""}
+			onMouseLeave={subMenu ? handleMouseLeave : () => ""}>
+			<Link to={link}>
 				{title}{" "}
 				<span className="open-dropdown">{subMenu ? <i className="fa fa-angle-down"></i> : ""}</span>
 			</Link>
