@@ -10,10 +10,8 @@ import MenuButton from "./MenuButton";
 
 const Home = () => {
 	const [toggle, setToggle] = useState(false);
-	// const [clientWidth, setClientWidth] = useState(getClientWidth());
 	let headerRef = useRef(null);
 
-	// console.log(clientWidth);
 	useEffect(() => {
 		document.addEventListener("scroll", handleScroll);
 		return () => document.removeEventListener("scroll", handleScroll);
@@ -21,12 +19,6 @@ const Home = () => {
 
 	// Sticky header
 	// ----------------------------------------------------------------
-
-	// useEffect(() => {
-	// 	if (clientWidth <= 576) {
-	// 		headerRef.current.classList.add("sticked");
-	// 	}
-	// }, [clientWidth]);
 
 	function handleScroll() {
 		const navbarFixed = headerRef.current;
@@ -183,6 +175,6 @@ const Home = () => {
 			</div>
 		</Fragment>
 	);
-};
+};;
 
 export default Home;
