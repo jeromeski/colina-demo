@@ -34,7 +34,9 @@ const NavItem = (props) => {
 			//  execute slidedown
 			const _drop = subDropdown.closest("li").querySelector("ul");
 			slideDown(_drop);
-		} else if (!showSubItems) {
+		}
+
+		if (!showSubItems && subDropdown) {
 			const _drop = subDropdown.closest("li").querySelector("ul");
 			slideUp(_drop);
 		}
