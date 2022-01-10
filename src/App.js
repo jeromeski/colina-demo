@@ -7,7 +7,7 @@ import "./assets/css/vendor/animate.css";
 import "./App.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import BookingIntro from "./components/Booking/BookingIntro";
 import BookingBox from "./components/Booking/BookingBox";
 import RoomsIntro from "./components/Booking/RoomsIntro";

@@ -2,61 +2,72 @@ import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { slideUp, slideDown } from "es6-slide-up-down";
 
-const NavItem = (props) => {
+const MenuItem = (props) => {
 	const { id, title, link, subMenu } = props;
 	const [showSubItems, setShowSubItems] = useState(false);
 
-	const itemRef = useRef(null);
-	const subMenuDropdownRef = useRef(null);
-	const subDropdown = subMenuDropdownRef.current;
+	let itemRef = useRef([]);
+	let subDropdownRef = useRef([]);
+
+	const isDesktop = window.innerWidth >= 992;
 
 	// Desktop - Dropdown menu
 	//----------------------------------------------------------------
 
 	const handleMouseEnter = () => {
-		itemRef.current.classList.add("hovered");
+		if (isDesktop) {
+			itemRef.current[id].classList.add("hovered");
+		}
+		return false;
 	};
 
-	const handleMouseLeave = (e) => {
-		itemRef.current.classList.remove("hovered");
+	const handleMouseLeave = () => {
+		if (isDesktop) {
+			itemRef.current[id].classList.remove("hovered");
+		}
+		return false;
 	};
 
 	// Mobile - Dropdown menu
 	//----------------------------------------------------------------
 
 	useEffect(() => {
-		console.log(showSubItems);
 		if (showSubItems) {
 			// Check if mobile or not
 			if (window.innerWidth >= 992) {
 				return false;
 			}
+			// Check if previous collapse is open
+
+			// if open close it
 			//  execute slidedown
-			const _drop = subDropdown.closest("li").querySelector("ul");
+
+			const _drop = subDropdownRef.current[id].closest("li").querySelector("ul");
 			slideDown(_drop);
 		}
+		//
 
-		if (!showSubItems && subDropdown) {
-			const _drop = subDropdown.closest("li").querySelector("ul");
+		if (!showSubItems && subDropdownRef.current[id]) {
+			const _drop = subDropdownRef.current[id].closest("li").querySelector("ul");
 			slideUp(_drop);
 		}
-	}, [showSubItems, subDropdown]);
+	}, [showSubItems, subDropdownRef, id]);
+
+	const handleClick = (e) => {
+		setShowSubItems((prev) => !prev);
+	};
 
 	return (
 		<li
 			key={id}
-			ref={itemRef}
+			ref={(el) => (itemRef.current[id] = el)}
 			onMouseEnter={subMenu ? handleMouseEnter : () => ""}
 			onMouseLeave={subMenu ? handleMouseLeave : () => ""}
 			className={`${showSubItems ? "expanded" : ""}`}>
 			<Link to={link}>
 				{title}{" "}
-				<span ref={subMenuDropdownRef} className="open-dropdown">
-					{subMenu ? (
-						<i className="fa fa-angle-down" onClick={() => setShowSubItems((prev) => !prev)}></i>
-					) : (
-						""
-					)}
+				<span id={id} ref={(el) => (subDropdownRef.current[id] = el)} className="open-dropdown">
+					{subMenu ? <i className="fa fa-angle-down" onClick={handleClick}></i> : ""}
 				</span>
 			</Link>
 			<ul>
@@ -71,4 +82,4 @@ const NavItem = (props) => {
 	);
 };
 
-export default NavItem;
+export default MenuItem;
