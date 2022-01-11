@@ -23,29 +23,38 @@ import Facilities from "./components/Facilities";
 import BlogCategory from "./components/BlogCategory";
 import Contact from "./components/Contact";
 import BlogItem from "./components/BlogItem";
+import Header from "./layout/Header";
+import { Fragment } from "react";
 
 function App() {
 	return (
 		<BrowserRouter>
-			<Routes>
-				<Route path="/" element={<Home />} exact />
-				<Route path="/booking/intro" element={<BookingIntro />} exact />
-				<Route path="/booking/box" element={<BookingBox />} exact />
-				<Route path="/rooms/intro" element={<RoomsIntro />} exact />
-				<Route path="/about" element={<About />} exact />
-				<Route path="/rooms/category" element={<RoomsCategory />} exact />
-				<Route path="/room/overview" element={<RoomOverview />} exact />
-				<Route path="/404" element={<NotFound />} exact />
-				<Route path="/shortcodes" element={<ShortCodes />} exact />
-				<Route path="/booking/step1" element={<BookingStepOne />} exact />
-				<Route path="/booking/step2" element={<BookingStepTwo />} exact />
-				<Route path="/booking/step2" element={<BookingStepThree />} exact />
-				<Route path="/booking/step2" element={<BookingStepThree />} exact />
-				<Route path="/facilities" element={<Facilities />} exact />
-				<Route path="/blog/category" element={<BlogCategory />} exact />
-				<Route path="/blog/category" element={<BlogItem />} exact />
-				<Route path="/contact" element={<Contact />} exact />
-			</Routes>
+			<Fragment>
+				<div className="wrapper">
+					<Header />
+					<Fragment>
+						<Routes>
+							<Route path="/" element={<Home />} exact />
+							<Route path="/booking/intro" element={<BookingIntro />} exact />
+							<Route path="/booking/box" element={<BookingBox />} exact />
+							<Route path="/rooms/intro" element={<RoomsIntro />} exact />
+							<Route path="/about" element={<About />} exact />
+							<Route path="/rooms/category" element={<RoomsCategory />} exact />
+							<Route path="/room/overview" element={<RoomOverview />} exact />
+							<Route path="/404" element={<NotFound />} exact />
+							<Route path="/shortcodes" element={<ShortCodes />} exact />
+							<Route path="/booking/step1" element={<BookingStepOne />} exact />
+							<Route path="/booking/step2" element={<BookingStepTwo />} exact />
+							<Route path="/booking/step2" element={<BookingStepThree />} exact />
+							<Route path="/booking/step2" element={<BookingStepThree />} exact />
+							<Route path="/facilities" element={<Facilities />} exact />
+							<Route path="/blog/category" element={<BlogCategory />} exact />
+							<Route path="/blog/category" element={<BlogItem />} exact />
+							<Route path="/contact" element={<Contact />} exact />
+						</Routes>
+					</Fragment>
+				</div>
+			</Fragment>
 		</BrowserRouter>
 	);
 }

@@ -1,57 +1,52 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { slideUp, slideDown } from "es6-slide-up-down";
 
 const MenuItem = (props) => {
 	const { id, title, link, subMenu } = props;
 	const [showSubItems, setShowSubItems] = useState(false);
+  const [showSubmenu, setShowSubmenu] = useState(false);
 
 	let itemRef = useRef([]);
 	let subDropdownRef = useRef([]);
 
-	const isDesktop = window.innerWidth >= 992;
+	const isMobile = window.innerWidth <= 992;
+
 
 	// Desktop - Dropdown menu
 	//----------------------------------------------------------------
 
 	const handleMouseEnter = () => {
-		if (isDesktop) {
-			itemRef.current[id].classList.add("hovered");
-		}
-		return false;
+    if(isMobile) {
+      return
+    }
+    setShowSubmenu(true);
 	};
 
 	const handleMouseLeave = () => {
-		if (isDesktop) {
-			itemRef.current[id].classList.remove("hovered");
-		}
-		return false;
+    if(isMobile) {
+      return
+    }
+    setShowSubmenu(false);
 	};
+
 
 	// Mobile - Dropdown menu
 	//----------------------------------------------------------------
 
 	useEffect(() => {
-		if (showSubItems) {
-			// Check if mobile or not
-			if (window.innerWidth >= 992) {
-				return false;
-			}
-			// Check if previous collapse is open
-
-			// if open close it
-			//  execute slidedown
-
+		if (showSubItems && isMobile) {
 			const _drop = subDropdownRef.current[id].closest("li").querySelector("ul");
 			slideDown(_drop);
 		}
-		//
 
-		if (!showSubItems && subDropdownRef.current[id]) {
+    if (!showSubItems && isMobile && subDropdownRef.current[id]) {
 			const _drop = subDropdownRef.current[id].closest("li").querySelector("ul");
 			slideUp(_drop);
 		}
-	}, [showSubItems, subDropdownRef, id]);
+
+		
+	}, [showSubItems, subDropdownRef, isMobile, id]);
 
 	const handleClick = (e) => {
 		setShowSubItems((prev) => !prev);
@@ -63,18 +58,21 @@ const MenuItem = (props) => {
 			ref={(el) => (itemRef.current[id] = el)}
 			onMouseEnter={subMenu ? handleMouseEnter : () => ""}
 			onMouseLeave={subMenu ? handleMouseLeave : () => ""}
-			className={`${showSubItems ? "expanded" : ""}`}>
-			<Link to={link}>
+			className={`${showSubItems ? "expanded" : ""} ${showSubmenu ? "hovered" : ""}`}>
+			<a href="#!">
 				{title}{" "}
-				<span id={id} ref={(el) => (subDropdownRef.current[id] = el)} className="open-dropdown">
-					{subMenu ? <i className="fa fa-angle-down" onClick={handleClick}></i> : ""}
+				<span
+					id={id}
+					ref={(spanEl) => (subDropdownRef.current[id] = spanEl)}
+					className="open-dropdown">
+					<i className="fa fa-angle-down" onClick={handleClick}></i>
 				</span>
-			</Link>
+			</a>
 			<ul>
 				{subMenu &&
 					subMenu.map((subMenuItem, idx) => (
 						<li key={idx}>
-							<Link to={subMenuItem.link}>{subMenuItem.title}</Link>
+							<a href={subMenuItem.link}>{subMenuItem.title}</a>
 						</li>
 					))}
 			</ul>
