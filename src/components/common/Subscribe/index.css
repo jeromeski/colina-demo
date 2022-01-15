@@ -1,0 +1,97 @@
+/*  
+    ----------------------------------
+    40. Subscribe
+    ----------------------------------
+*/
+.subscribe {
+  position: relative;
+  z-index: 999;
+  padding: 142px 0;
+  background-image: url(../../../assets/css/vendor/img/contact.png);
+  background-position: center;
+  background-size: 60% auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #00486c;
+}
+
+@media print {
+  .subscribe {
+    display: none !important;
+  }
+}
+
+.subscribe .box {
+  max-width: 500px;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+}
+
+.subscribe .box .title {
+  margin-bottom: 0;
+}
+
+.subscribe .box:before, .subscribe .box:after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 50%;
+}
+
+.subscribe .box:before {
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+  height: 400px;
+  left: 0;
+  z-index: -1;
+}
+
+.subscribe .box:after {
+  background-color: #00486c;
+  -moz-transform: translate(-50%, -50%) rotate(45deg);
+  -ms-transform: translate(-50%, -50%) rotate(45deg);
+  -o-transform: translate(-50%, -50%) rotate(45deg);
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 300px;
+  height: 300px;
+  left: 50%;
+  z-index: -1;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  opacity: .5;
+}
+
+@media (min-width: 768px) {
+  .subscribe .box:after {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+.subscribe .box .form-group {
+  max-width: 300px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.subscribe .box .form-group .btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@media (min-width: 768px) {
+  .subscribe .box .form-group {
+    max-width: 400px;
+  }
+}

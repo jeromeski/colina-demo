@@ -4,6 +4,7 @@ import "./assets/css/vendor/font-awesome.min.css";
 import "./assets/css/vendor/linear-icons.min.css";
 import "./assets/css/vendor/hotel-icons.min.css";
 import "./assets/css/vendor/animate.css";
+import "./assets/css/vendor/owl.carousel.css";
 import "./App.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -12,7 +13,7 @@ import BookingIntro from "./components/Booking/BookingIntro";
 import BookingBox from "./components/Booking/BookingBox";
 import RoomsIntro from "./components/Booking/RoomsIntro";
 import About from "./components/About";
-import RoomsCategory from "./components/RoomsCategory";
+import RoomsCategory from "./pages/RoomsCategory";
 import RoomOverview from "./components/RoomOverview";
 import NotFound from "./components/NotFound";
 import BookingStepOne from "./components/BookingStepOne";
@@ -25,6 +26,8 @@ import Contact from "./components/Contact";
 import BlogItem from "./components/BlogItem";
 import Header from "./layout/Header";
 import { Fragment } from "react";
+import Footer from "./layout/Footer";
+import Subscribe from "./components/common/Subscribe";
 
 function App() {
 	return (
@@ -53,6 +56,8 @@ function App() {
 							<Route path="/contact" element={<Contact />} exact />
 						</Routes>
 					</Fragment>
+					<Subscribe />
+					<Footer />
 				</div>
 			</Fragment>
 		</BrowserRouter>
