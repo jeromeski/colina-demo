@@ -1,4 +1,4 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment } from "react";
 import pageImg from "../../assets/images/header-1.jpg";
 import Page from "../../layout/Page";
 import PageHeader from "../../components/common/PageHeader";
@@ -13,7 +13,7 @@ import Button from "../../components/common/Button";
 import SectionHeader from "../../layout/SectionHeader";
 import Stretcher from "../../components/common/Stretcher";
 import facilities from "../../data/facilities";
-import FFStretcherItem from "../../components/common/Stretcher/StretcherItem";
+import StretcherItem from "../../components/common/Stretcher/StretcherItem";
 
 const RoomsCategory = () => {
 	return (
@@ -47,7 +47,7 @@ const RoomsCategory = () => {
 				<Stretcher
 					facilities={facilities()}
 					resourceName="facility"
-					itemComponent={FFStretcherItem}
+					itemComponent={StretcherItem}
 				/>
 			</Wrapper>
 		</Fragment>
