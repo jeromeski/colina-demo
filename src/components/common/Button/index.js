@@ -1,5 +1,4 @@
 import React from "react";
-import "./button.module.css";
 
 const Button = (props) => {
 	const { title, className } = props;
