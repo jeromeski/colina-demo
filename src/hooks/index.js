@@ -1,12 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
-function getClientWidth() {
-	const { innerWidth: width } = window;
-	return width;
-}
+export const useHover = () => {
+	const [value, setValue] = useState(false);
 
-export function useWindowClientWidth() {
-	const [width, setWidth] = useState(getClientWidth());
+	const ref = useRef(null);
 
-	useEffect(() => {}, []);
-}
+	const handleMouseEnter = () => {
+		setValue(true);
+	};
+
+	const handleMouseLeave = () => {
+		setValue(false);
+	};
+
+	useEffect(() => {
+		const node = ref.current;
+		if (ref.current) {
+			node.addEventListener("mouseenter", handleMouseEnter);
+			node.addEventListener("mouseleave", handleMouseLeave);
+		}
+
+		return () => {
+			node.removeEventListener("mouseenter", handleMouseEnter);
+			node.removeEventListener("mouseleave", handleMouseLeave);
+		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ref.current]);
+
+	return [ref, value];
+};

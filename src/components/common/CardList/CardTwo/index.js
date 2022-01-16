@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Col from "../../../../layout/Col";
+import { useHover } from "../../../../hooks";
 
 const CardTwo = ({ card }) => {
 	const { title, imgUrl, isLongCol } = card;
-	const [active, setActive] = useState(false);
+	const [hoverRef, isActive] = useHover();
 	return (
 		<Col className={`${isLongCol ? "col-xs-12 col-md-8" : "col-xs-6 col-md-4"}`}>
-			<figure className={active ? "active" : ""}>
+			<figure ref={hoverRef} className={isActive ? "active" : ""}>
 				<figcaption
-					onMouseEnter={() => setActive(true)}
-					onMouseLeave={() => setActive(false)}
 					style={{ backgroundImage: `url(${require("../../../../assets/images" + imgUrl)})` }}>
 					<img src={require(`../../../../assets/images${imgUrl}`)} alt="" />
 				</figcaption>

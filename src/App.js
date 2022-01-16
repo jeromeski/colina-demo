@@ -14,7 +14,7 @@ import BookingBox from "./components/Booking/BookingBox";
 import RoomsIntro from "./components/Booking/RoomsIntro";
 import About from "./components/About";
 import RoomsCategory from "./pages/RoomsCategory";
-import RoomOverview from "./components/RoomOverview";
+
 import NotFound from "./components/NotFound";
 import BookingStepOne from "./components/BookingStepOne";
 import BookingStepTwo from "./components/BookingStepTwo";
@@ -28,6 +28,7 @@ import Header from "./layout/Header";
 import { Fragment } from "react";
 import Footer from "./layout/Footer";
 import Subscribe from "./components/common/Subscribe";
+import RoomOverview from "./pages/RoomOverview";
 
 function App() {
 	return (
