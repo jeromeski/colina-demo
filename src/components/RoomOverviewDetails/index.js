@@ -2,7 +2,7 @@ import React from "react";
 import Container from "../../layout/Container";
 import Row from "../../layout/Row";
 
-const RoomOverviewDetails = ({}) => {
+const RoomOverviewDetails = () => {
 	return (
 		<div className="room-overview">
 			<Container>

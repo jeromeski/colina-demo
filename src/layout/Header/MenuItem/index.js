@@ -1,32 +1,18 @@
 import React, { useRef, useState, useEffect } from "react";
+// import { Link } from "react-router-dom";
 import { slideUp, slideDown } from "es6-slide-up-down";
+import { useHover } from '../../../hooks';
+
 
 const MenuItem = (props) => {
 	const { id, title, subMenu } = props;
 	const [showSubItems, setShowSubItems] = useState(false);
-	const [showSubmenu, setShowSubmenu] = useState(false);
 
-	let itemRef = useRef([]);
+  const [ref, value] = useHover()
+
 	let subDropdownRef = useRef([]);
 
 	const isMobile = window.innerWidth <= 992;
-
-	// Desktop - Dropdown menu
-	//----------------------------------------------------------------
-
-	const handleMouseEnter = () => {
-		if (isMobile) {
-			return;
-		}
-		setShowSubmenu(true);
-	};
-
-	const handleMouseLeave = () => {
-		if (isMobile) {
-			return;
-		}
-		setShowSubmenu(false);
-	};
 
 	// Mobile - Dropdown menu
 	//----------------------------------------------------------------
@@ -37,10 +23,11 @@ const MenuItem = (props) => {
 			slideDown(_drop);
 		}
 
-		if (!showSubItems && isMobile && subDropdownRef.current[id]) {
+    if (!showSubItems && isMobile && subDropdownRef.current[id]) {
 			const _drop = subDropdownRef.current[id].closest("li").querySelector("ul");
 			slideUp(_drop);
 		}
+
 	}, [showSubItems, subDropdownRef, isMobile, id]);
 
 	const handleClick = (e) => {
@@ -50,20 +37,16 @@ const MenuItem = (props) => {
 	return (
 		<li
 			key={id}
-			ref={(el) => (itemRef.current[id] = el)}
-			onMouseEnter={subMenu ? handleMouseEnter : () => ""}
-			onMouseLeave={subMenu ? handleMouseLeave : () => ""}
-			className={`${showSubItems ? "expanded" : ""} ${showSubmenu ? "hovered" : ""}`}>
+      ref={ref}
+			className={`${showSubItems ? "expanded" : ""} ${subMenu && value ? "hovered" : ""}`}>
 			<a href="#!">
 				{title}{" "}
-				{subMenu && (
-					<span
-						id={id}
-						ref={(spanEl) => (subDropdownRef.current[id] = spanEl)}
-						className="open-dropdown">
-						<i className="fa fa-angle-down" onClick={handleClick}></i>
-					</span>
-				)}
+			{ subMenu && <span
+					id={id}
+					ref={(spanEl) => (subDropdownRef.current[id] = spanEl)}
+					className="open-dropdown">
+					<i className="fa fa-angle-down" onClick={handleClick}></i>
+				</span>}
 			</a>
 			<ul>
 				{subMenu &&

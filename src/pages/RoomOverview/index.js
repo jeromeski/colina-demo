@@ -16,7 +16,7 @@ import places from "../../data/places";
 import blogShortInfo from "../../data/blogShortInfo";
 import CardThree from "../../components/common/CardList/CardThree";
 import MainSection from "../../layout/MainSection";
-import RoomOverviewDetails from "../../components/RoomOverview";
+import RoomOverviewDetails from "../../components/RoomOverviewDetails";
 
 const content1 = {
 	heading1: "Resort",
