@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import FrontPageSlider from "../components/FrontPageSlider";
 import MetaData from "../components/MetaData";
 // import FrontPageSlider from "../components/FrontPageSlider";
 
@@ -9,7 +10,7 @@ const Home = () => {
 		<Fragment>
 			<MetaData title="Home Page" />
 			<div>
-
+				<FrontPageSlider />
 				<PlaceHolderParagraph />
 			</div>
 		</Fragment>

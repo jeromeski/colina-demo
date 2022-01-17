@@ -1,84 +1,84 @@
-import React, { useRef } from "react";
-import slideImgThree from "../../assets/images/slide-3.jpg";
-import slideImgTwo from "../../assets/images/slide-2.jpg";
-import slideImgOne from "../../assets/images/slide-1.jpg";
-import { useEffect } from "react/cjs/react.production.min";
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { data } from "../../data";
+import ForwardedSliderItem from "./SliderItem";
 
-const FrontPageSlider = () => {
-	let owlRef = useRef();
+import "./index.css";
 
-	// Frontpage slider
-	// ----------------------------------------------------------------
-
-	return (
-		<section className="frontpage-slider">
-			<div className="owl-slider owl-slider-header" useRef={owlRef}>
-				<div className="item" style={{ backgroundImage: slideImgThree }}>
-					<div className="box text-center">
-						<div className="container">
-							<h2 className="title animated h1" data-animation="fadeInDown">
-								Fairmont managed!
-							</h2>
-							<div className="desc animated" data-animation="fadeInUp">
-								The elegant Champagne Bar, the stylish Colina Club.
-							</div>
-							<div className="desc animated" data-animation="fadeInUp">
-								Guestrooms and luxurious suites
-							</div>
-							<div className="animated" data-animation="fadeInUp">
-								<a href="#" className="btn btn-clean">
-									Get insipred
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div className="item" style={{ backgroundImage: slideImgTwo }}>
-					<div className="box text-center">
-						<div className="container">
-							<h2 className="title animated h1" data-animation="fadeInDown">
-								A moment of <br /> <span>pure prestige</span>
-							</h2>
-							<div className="desc animated" data-animation="fadeInUp">
-								Lavish social and business events
-							</div>
-							<div className="desc animated" data-animation="fadeInUp">
-								and unforgettable weddings.
-							</div>
-							<div className="animated" data-animation="fadeInUp">
-								<a
-									href="https://themeforest.net/item/colina-hotel-website-template/20977257"
-									className="btn btn-clean">
-									Buy this template
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div className="item" style={{ backgroundImage: slideImgOne }}>
-					<div className="box text-center">
-						<div className="container">
-							<h2 className="title animated h1" data-animation="fadeInDown">
-								The privacy and <br />
-								individuality of a custom
-							</h2>
-							<div className="desc animated" data-animation="fadeInUp">
-								The Residences have their own dedicated private entrance as well <br />
-								as an anonymous "celebrity" entrance, for ultimate privacy.
-							</div>
-							<div className="animated" data-animation="fadeInUp">
-								<a href="#" className="btn btn-clean">
-									Virtual tour
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+const onInit = () => {
+	const targetNode = document.querySelector(".slick-active");
+	const targetEls = targetNode.querySelectorAll(".animated");
+	targetEls.forEach((el) => {
+		el.classList.add("active", "fadeUp-in");
+	});
 };
+
+const handleOnChange = (idx) => {
+	const afterEl = document.querySelector(`[data-index='${idx}']`);
+	const afterTargetEls = afterEl.querySelectorAll(".animated");
+	afterTargetEls.forEach((item) => {
+		item.classList.add("active", "fadeUp-in");
+	});
+};
+
+const handleBeforeChange = (prevId, newId) => {
+	const prev = document.querySelector(`[data-index='${prevId}']`);
+	const prevTargetEls = prev.querySelectorAll(".animated");
+	prevTargetEls.forEach((item) => {
+		item.classList.remove("fadeUp-in");
+		item.classList.add("fadeUp-out");
+		const timer = setTimeout(() => {
+			item.classList.remove("fadeUp-out", "active");
+			clearTimeout(timer);
+		}, [300]);
+	});
+	const after = document.querySelector(`[data-index='${newId}']`);
+	const afterTargetEls = after.querySelectorAll(".animated");
+	afterTargetEls.forEach((item) => {
+		item.classList.remove("fadeUp-in");
+		item.classList.add("fadeUp-out");
+		item.classList.remove("fadeUp-out", "active");
+	});
+};
+
+const NextArrow = ({ onClick }) => (
+	<button onClick={onClick} className="next-btn">
+		<span className="icon icon-chevron-right"></span>
+	</button>
+);
+
+const PrevArrow = ({ onClick }) => (
+	<button onClick={onClick} className="prev-btn">
+		<span className="icon icon-chevron-left"></span>
+	</button>
+);
+
+const settings = {
+	nextArrow: <NextArrow />,
+	prevArrow: <PrevArrow />,
+	speed: 1000,
+	autoPlay: false,
+	onInit: () => {
+		onInit();
+	},
+	afterChange: (idx) => {
+		handleOnChange(idx);
+	},
+	beforeChange: (prevId, newId) => {
+		handleBeforeChange(prevId, newId);
+	}
+};
+
+function FrontPageSlider() {
+	return (
+		<Slider {...settings}>
+			{data.map((item) => (
+				<ForwardedSliderItem key={item.id} {...item} />
+			))}
+		</Slider>
+	);
+}
 
 export default FrontPageSlider;
